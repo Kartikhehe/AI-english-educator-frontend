@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { UserProfile } from '../App';
 import '../App.css';
+import { type Session } from '@supabase/supabase-js';
 
 // --- Material-UI Imports for Icons ---
 import { IconButton } from '@mui/material';
@@ -9,8 +10,10 @@ import { ChevronLeft, ChevronRight, Flame, BookOpen, Trophy } from 'lucide-react
 
 // --- TypeScript Type Definitions ---
 interface DashboardProps {
-  user: UserProfile | null;
-}
+    user: UserProfile | null;
+    session: Session;          
+    onLogout: () => Promise<void>;
+  }
 interface Scenario {
   id: string;
   title: string;
